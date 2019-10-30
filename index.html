@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <style>
+        #div1,#div2
+        {
+            margin:0 auto;
+            display: block;
+            width:800px;
+            height: 300px;
+            border:2px solid black;s
+        }
+    
+    </style>
+    <body>
+        <div id="div1" ondrop="dropIt(event);" ondragover="dragOver(event)">
+            <img id="img1" src="902.png" width="200px" height="100px" draggable="true" ondragstart="dragIt(event);" id="pic1" />
+            <img id="img2" src="jerry.png" width="200px" height="100px" draggable="true" ondragstart="dragIt(event);" id="pic2" />
+            <img id="img3" src="spike.png" width="200px" height="100px" draggable="true" ondragstart="dragIt(event);" id="pic3"  />
+        </div>
+
+        <div id="div2" ondrop="dropIt(event);" ondragover="dragOver(event)">
+
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

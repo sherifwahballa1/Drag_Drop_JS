@@ -1,0 +1,48 @@
+console.log(google);
+var getPosition=document.querySelector('[value=getPosition]');
+var map=document.querySelector('#map');
+function success(positionObj)
+{
+    var longitude=positionObj.coords.longitude;
+    var latitude=positionObj.coords.latitude;
+    map.innerText=longitude +" , "+latitude;
+    var gMap=new google.maps.Map(map,
+    {
+    center: {
+        lat:latitude,
+        lng:longitude
+        },
+        zoom:18
+    })
+}
+function error(errorObj)
+{
+    var message="";
+    switch(errorObj.code)
+    {
+        case 1: {
+            message =" please give me permisson to get location";
+            break;
+        }
+        case 2:{
+            message="check your permisson";
+            break;
+        }
+        case 3:{
+            message="try again later";
+            break;
+        }
+        default: {
+            message="Unknow error";
+        }
+        map.innerText=message;
+    }
+}
+getPosition.addEventListener('click',function(){
+    if(window.navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(success,error)
+    }
+    else{
+        map.innerText ="Browser don't support Geolocation";
+    }
+})
